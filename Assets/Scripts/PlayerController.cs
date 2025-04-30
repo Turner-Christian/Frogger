@@ -44,12 +44,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-void TryMove(Vector3 direction)
-{
-    if (!Physics2D.OverlapCircle(movePoint.position + direction, 0.2f, whatStopsMovement))
+    void TryMove(Vector3 direction)
     {
-        movePoint.position += direction;
-        animator.SetTrigger("Hop"); 
+        if (!Physics2D.OverlapCircle(movePoint.position + direction, 0.2f, whatStopsMovement))
+        {
+            movePoint.position += direction;
+            animator.SetTrigger("Hop"); 
+        }
     }
-}
+
+    private void OnCollisionEnter2D(Collision2D other) {
+        if (other.gameObject.CompareTag("Car") && !GameManager.PLAYERDEAD) // Check if the player collides with a car and the player is not dead
+        {
+            GameManager.PLAYERDEAD = true; // Set the player as dead
+            Destroy(gameObject); // Destroy the player object
+        }
+    }
 }
