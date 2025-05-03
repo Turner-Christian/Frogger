@@ -6,10 +6,14 @@ public class Frogger : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     public Sprite idleSprite;
     public Sprite leapSprite;
+    public Sprite deathSprite;
+
+    private Vector3 spawnPosition; // Store the spawn position of the frog
 
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        spawnPosition = transform.position;
     }
 
     private void Update()
@@ -73,8 +77,9 @@ public class Frogger : MonoBehaviour
             transform.SetParent(null);
         }
 
-        if (obstacle != null) // Check for obstacles in the direction of movement
+        if (obstacle != null && platform == null) // Check for obstacles in the direction of movement
         {
+            transform.position = destination;
             Death();
         }
         else
@@ -105,6 +110,32 @@ public class Frogger : MonoBehaviour
 
     private void Death() // Handle the frog's death
     {
-        // Implement death logic here (e.g., respawn, game over, etc.)
+        StopAllCoroutines(); // Stop any ongoing leap animations
+
+        transform.rotation = Quaternion.identity;
+        spriteRenderer.sprite = deathSprite;
+        enabled = false; // Disable the script to stop movement
+
+        Invoke(nameof(Respawn), 1f); // Respawn the frog after 1 second
+    }
+
+    public void Respawn()
+    {
+        StopAllCoroutines(); // Stop any ongoing leap animations
+
+        transform.rotation = Quaternion.identity;
+        transform.position = spawnPosition; 
+        spriteRenderer.sprite = idleSprite;
+        gameObject.SetActive(true);
+        enabled = true;
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (enabled && other.gameObject.layer == LayerMask.NameToLayer("Obstacle") && transform.parent == null)
+        {
+            Death(); // Handle collision with obstacles
+        }
     }
 }
