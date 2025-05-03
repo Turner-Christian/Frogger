@@ -7,8 +7,10 @@ public class Frogger : MonoBehaviour
     public Sprite idleSprite;
     public Sprite leapSprite;
     public Sprite deathSprite;
-
+    public AudioSource src;
+    public AudioClip jumpSound, hitSound;
     private Vector3 spawnPosition; // Store the spawn position of the frog
+    private float farthestRow;
 
     void Awake()
     {
@@ -16,6 +18,7 @@ public class Frogger : MonoBehaviour
         spawnPosition = transform.position;
     }
 
+    [System.Obsolete]
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -40,6 +43,7 @@ public class Frogger : MonoBehaviour
         }
     }
 
+    [System.Obsolete]
     private void Move(Vector3 direction) // Move the frog in the specified direction
     {
         Vector3 destination = transform.position + direction;
@@ -84,6 +88,11 @@ public class Frogger : MonoBehaviour
         }
         else
         {
+            if (destination.y > farthestRow) // Check if the frog has moved to a new row
+            {
+                farthestRow = destination.y;
+                FindObjectOfType<GameManager>().AdvancedRow(); // Notify the GameManager that the frog has advanced a row
+            }
             StartCoroutine(Leap(destination));
         }
     }
@@ -106,17 +115,20 @@ public class Frogger : MonoBehaviour
 
         transform.position = destination;
         spriteRenderer.sprite = idleSprite;
+        src.PlayOneShot(jumpSound); // Play the jump sound
     }
 
-    private void Death() // Handle the frog's death
+    [System.Obsolete]
+    public void Death() // Handle the frog's death
     {
         StopAllCoroutines(); // Stop any ongoing leap animations
 
+        src.PlayOneShot(hitSound); // Play the hit sound
         transform.rotation = Quaternion.identity;
         spriteRenderer.sprite = deathSprite;
         enabled = false; // Disable the script to stop movement
 
-        Invoke(nameof(Respawn), 1f); // Respawn the frog after 1 second
+        FindObjectOfType<GameManager>().Died(); // Notify the GameManager that the frog has died
     }
 
     public void Respawn()
@@ -124,16 +136,20 @@ public class Frogger : MonoBehaviour
         StopAllCoroutines(); // Stop any ongoing leap animations
 
         transform.rotation = Quaternion.identity;
-        transform.position = spawnPosition; 
+        transform.position = spawnPosition;
         spriteRenderer.sprite = idleSprite;
+        farthestRow = spawnPosition.y;
         gameObject.SetActive(true);
         enabled = true;
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (enabled && other.gameObject.layer == LayerMask.NameToLayer("Obstacle") && transform.parent == null)
+        if (
+            enabled
+            && other.gameObject.layer == LayerMask.NameToLayer("Obstacle")
+            && transform.parent == null
+        )
         {
             Death(); // Handle collision with obstacles
         }
