@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3124693540906400775}
-  m_Layer: 0
+  - component: {fileID: 3584354711629446927}
+  m_Layer: 6
   m_Name: Log3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,6 +35,21 @@ Transform:
   - {fileID: 6416546208276026844}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3584354711629446927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2936654100749327652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6945eb967df1e944298277a0fc358b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 1, y: 0}
+  speed: 1
+  size: 3
 --- !u!1 &6072874402159131346
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,7 +61,7 @@ GameObject:
   - component: {fileID: 1638356888683633950}
   - component: {fileID: 45009848209053084}
   - component: {fileID: 2291363626905146462}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LogMiddle_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +77,7 @@ Transform:
   m_GameObject: {fileID: 6072874402159131346}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.94, y: 0, z: 0}
+  m_LocalPosition: {x: -0.91699994, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -179,7 +195,7 @@ GameObject:
   - component: {fileID: 6416546208276026844}
   - component: {fileID: 3077432320924626591}
   - component: {fileID: 3280459902036863615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LogEnd_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,7 +211,7 @@ Transform:
   m_GameObject: {fileID: 7480225149070064052}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8, y: 0, z: 0}
+  m_LocalPosition: {x: -1.852, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -313,7 +329,7 @@ GameObject:
   - component: {fileID: 1176241713483764050}
   - component: {fileID: 7911080283327000498}
   - component: {fileID: 6581442963941988728}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LogStart_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}

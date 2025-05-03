@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3054731674234895433}
-  m_Layer: 0
+  - component: {fileID: 6635465340684048442}
+  m_Layer: 6
   m_Name: Turtle2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,6 +34,21 @@ Transform:
   - {fileID: 7668261146026839617}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6635465340684048442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2262010541157704967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6945eb967df1e944298277a0fc358b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: -1, y: 0}
+  speed: 1
+  size: 2
 --- !u!1001 &4701289050668244216
 PrefabInstance:
   m_ObjectHideFlags: 0

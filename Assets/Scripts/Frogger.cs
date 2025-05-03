@@ -1,7 +1,17 @@
+using System.Collections;
 using UnityEngine;
 
 public class Frogger : MonoBehaviour
 {
+    private SpriteRenderer spriteRenderer;
+    public Sprite idleSprite;
+    public Sprite leapSprite;
+
+    void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
@@ -26,8 +36,75 @@ public class Frogger : MonoBehaviour
         }
     }
 
-    private void Move(Vector3 direction)
+    private void Move(Vector3 direction) // Move the frog in the specified direction
     {
-        transform.position += direction;
+        Vector3 destination = transform.position + direction;
+
+        Collider2D barrier = Physics2D.OverlapBox(
+            destination,
+            Vector2.zero,
+            0f,
+            LayerMask.GetMask("Barrier")
+        );
+        Collider2D platform = Physics2D.OverlapBox(
+            destination,
+            Vector2.zero,
+            0f,
+            LayerMask.GetMask("Platform")
+        );
+        Collider2D obstacle = Physics2D.OverlapBox(
+            destination,
+            Vector2.zero,
+            0f,
+            LayerMask.GetMask("Obstacle")
+        );
+
+        if (barrier != null) // Check for barriers in the direction of movement
+        {
+            return;
+        }
+
+        if (platform != null)
+        {
+            transform.SetParent(platform.transform);
+        }
+        else
+        {
+            transform.SetParent(null);
+        }
+
+        if (obstacle != null) // Check for obstacles in the direction of movement
+        {
+            Death();
+        }
+        else
+        {
+            StartCoroutine(Leap(destination));
+        }
+    }
+
+    private IEnumerator Leap(Vector3 destination) // Animate the frog's leap to the destination
+    {
+        Vector3 startPosition = transform.position;
+        float elapsed = 0f;
+        float duration = 0.125f;
+
+        spriteRenderer.sprite = leapSprite;
+
+        while (elapsed < duration)
+        {
+            float t = elapsed / duration;
+            transform.position = Vector3.Lerp(startPosition, destination, t);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.position = destination;
+        spriteRenderer.sprite = idleSprite;
+    }
+
+    private void Death() // Handle the frog's death
+    {
+        // Implement death logic here (e.g., respawn, game over, etc.)
     }
 }

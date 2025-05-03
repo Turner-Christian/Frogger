@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5795905476732824216}
   - component: {fileID: 1793734342286366141}
   - component: {fileID: 6677043719274417285}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LogMiddle_0 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 487881315946306933}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.947, y: 0, z: 0}
+  m_LocalPosition: {x: -3.925, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 4148856753305030462}
   - component: {fileID: 2186286156805162384}
   - component: {fileID: 4438191641853469883}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LogMiddle_0 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ Transform:
   m_GameObject: {fileID: 1012068028355848423}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.947, y: 0, z: 0}
+  m_LocalPosition: {x: -2.925, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -279,7 +279,7 @@ GameObject:
   - component: {fileID: 7987838600843271698}
   - component: {fileID: 3566799941472000165}
   - component: {fileID: 1348213313500956311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LogStart_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -411,7 +411,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8920297547555507104}
-  m_Layer: 0
+  - component: {fileID: 1683388921028281244}
+  m_Layer: 6
   m_Name: Log6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -439,6 +440,21 @@ Transform:
   - {fileID: 3055829576226563043}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1683388921028281244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916875051439320236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6945eb967df1e944298277a0fc358b3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 1, y: 0}
+  speed: 3
+  size: 6
 --- !u!1 &6850053946329496370
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,7 +466,7 @@ GameObject:
   - component: {fileID: 6896274025402007599}
   - component: {fileID: 8693149320855045106}
   - component: {fileID: 4383118034275422060}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LogMiddle_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,7 +482,7 @@ Transform:
   m_GameObject: {fileID: 6850053946329496370}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.947, y: 0, z: 0}
+  m_LocalPosition: {x: -0.925, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -584,7 +600,7 @@ GameObject:
   - component: {fileID: 3055829576226563043}
   - component: {fileID: 3094354800511806824}
   - component: {fileID: 891848048872559495}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LogEnd_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -600,7 +616,7 @@ Transform:
   m_GameObject: {fileID: 7042885792408969959}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.897, y: 0, z: 0}
+  m_LocalPosition: {x: -4.854, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -718,7 +734,7 @@ GameObject:
   - component: {fileID: 7699422504726107873}
   - component: {fileID: 668790678453179078}
   - component: {fileID: 470959767404564295}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LogMiddle_0 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -734,7 +750,7 @@ Transform:
   m_GameObject: {fileID: 8885456780178245269}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.947, y: 0, z: 0}
+  m_LocalPosition: {x: -1.925, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
